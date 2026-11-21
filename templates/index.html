@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Document Analyzer</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 40px auto; padding: 0 20px; color: #222; }
+    h1 { margin-bottom: 4px; }
+    .hint { color: #666; margin-top: 0; }
+    form { background: #f6f7f9; padding: 20px; border-radius: 10px; }
+    input[type="file"] { margin: 10px 0; }
+    button { background: #2563eb; color: white; border: 0; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    .error { color: #b91c1c; background: #fef2f2; padding: 12px; border-radius: 6px; }
+    pre { background: #111827; color: #e5e7eb; padding: 18px; border-radius: 10px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <h1>Smart Document Analyzer</h1>
+  <p class="hint">Upload one invoice and get the report right here. Runs locally on your machine.</p>
+
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="invoice" accept=".pdf,.png,.jpg,.jpeg,.txt" required>
+    <br>
+    <button type="submit">Analyze invoice</button>
+  </form>
+
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% endif %}
+
+  {% if report %}
+    <h2>Report</h2>
+    <pre>{{ report_json }}</pre>
+  {% endif %}
+</body>
+</html>

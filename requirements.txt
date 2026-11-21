@@ -1,0 +1,23 @@
+# Free / local runtime dependencies
+python-dotenv>=1.0.0          # reads .env
+requests>=2.31.0              # talks to a local Ollama server
+Pillow>=10.0.0                # opens images for OCR
+pytesseract>=0.3.10           # Python wrapper for the Tesseract binary
+pdf2image>=1.17.0             # turns PDF pages into images for OCR
+pypdf>=5.0.0                  # fast text extraction from text-based PDFs
+
+# Text analysis
+vaderSentiment>=3.3.2         # sentiment
+yake>=0.4.8                   # key phrases
+presidio-analyzer>=2.2.0      # detects PII
+presidio-anonymizer>=2.2.0    # replaces PII with ***
+
+# Optional LLM providers (choose one with LLM_PROVIDER in .env)
+google-genai>=1.0.0           # Gemini API client
+
+# Local web interface
+Flask>=3.0.0
+
+# Sample generation + tests
+reportlab>=4.0.0
+pytest>=8.0.0
